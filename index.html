@@ -239,38 +239,14 @@ async function loadDoc() {
 }
 
 async function parseWithClaude(text) {
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
+  const r = await fetch("/api/parse-doc", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 4000,
-      system: "You parse proposal documents into JSON. Return ONLY valid JSON — no markdown, no backticks, no explanation. Preserve all content faithfully.",
-      messages: [{ role: "user", content: `Parse this proposal into JSON with this exact structure:
-{
-  "title": "full document title",
-  "subtitle": "subtitle or empty string",
-  "sections": [
-    { "heading": "section heading or empty string for intro", "level": 1, "content": "full text preserving line breaks, bullets as - item, bold as **text**, italic as *text*" }
-  ],
-  "metadata": {
-    "preparedFor": "client firm name",
-    "preparedBy": "presenting company",
-    "investment": "dollar amount if mentioned",
-    "contactName": "contact person name",
-    "contactTitle": "contact person title",
-    "contactPhone": "contact phone"
-  }
-}
-
-Document:
-${text.substring(0, 8000)}` }]
-    })
+    body: JSON.stringify({ text })
   });
   const d = await r.json();
-  if (d.error) throw new Error(d.error.message);
-  let txt = d.content[0].text.trim().replace(/^```json\n?/i,"").replace(/^```\n?/,"").replace(/```$/,"").trim();
-  return JSON.parse(txt);
+  if (d.error) throw new Error(d.error);
+  return d;
 }
 
 $("genBtn").addEventListener("click", generatePDF);
@@ -468,54 +444,36 @@ $("emailTo").addEventListener("input", () => {
   $("emBtn").disabled = !($("emailTo").value.trim() && pdfDataUrl);
 });
 
-$("emBtn").addEventListener("click", async () => {
-  const to=$("emailTo").value.trim();
-  if (!to||!pdfDataUrl) return;
-  $("emBtn").disabled=true; $("emBtn").textContent="Sending…";
-  $("emStatus").textContent="Creating Gmail draft…"; $("emStatus").className="emstatus";
-  try {
-    const title=parsedDoc?.title||"Amplify Proposal";
-    const forFirm=parsedDoc?.metadata?.preparedFor||"";
-    const investment=parsedDoc?.metadata?.investment||"";
-    const sender=$("senderName").value.trim()||"Amplify for Lawyers";
-    const phone=$("senderPhone").value.trim();
+$("emBtn").addEventListener("click", () => {
+  const to = $("emailTo").value.trim();
+  if (!to || !pdfDataUrl) return;
+  const title = parsedDoc?.title || "Amplify Proposal";
+  const sender = $("senderName").value.trim() || "Amplify for Lawyers";
+  const phone = $("senderPhone").value.trim();
+  const forFirm = parsedDoc?.metadata?.preparedFor || "";
+  const investment = parsedDoc?.metadata?.investment || "";
 
-    const r=await fetch("https://api.anthropic.com/v1/messages",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({
-        model:"claude-sonnet-4-20250514",
-        max_tokens:500,
-        mcp_servers:[{type:"url",url:"https://gmail.mcp.claude.com/mcp",name:"gmail"}],
-        system:"You create Gmail drafts using the Gmail tool. Use the tool then confirm in one sentence.",
-        messages:[{role:"user",content:`Create a Gmail draft:
-To: ${to}
-Subject: AMPLIFY Proposal — ${title}
-Body:
-Hi,
+  const body = [
+    "Hi,",
+    "",
+    "Please find the attached AMPLIFY branded proposal.",
+    forFirm ? "Client: " + forFirm : "",
+    investment ? "Investment: " + investment : "",
+    "",
+    "Download and open the attached PDF to review the full proposal.",
+    "",
+    "Best,",
+    sender,
+    phone,
+    "Amplify for Lawyers | amplifylaw.ai"
+  ].filter(l => l !== undefined).join("\n");
 
-Please find the attached AMPLIFY branded proposal.
-${forFirm?"\nClient: "+forFirm:""}${investment?"\nInvestment: "+investment:""}
+  const subject = encodeURIComponent("AMPLIFY Proposal — " + title);
+  const bodyEnc = encodeURIComponent(body);
+  window.location.href = `mailto:${to}?subject=${subject}&body=${bodyEnc}`;
 
-Download and open the attached PDF to review the full proposal.
-
-Best,
-${sender}${phone?"\n"+phone:""}
-Amplify for Lawyers | amplifylaw.ai`}]
-      })
-    });
-    const d=await r.json();
-    const txt=(d.content||[]).map(b=>b.text||"").join("").toLowerCase();
-    if (txt.includes("draft")||txt.includes("creat")||txt.includes("success")) {
-      $("emStatus").textContent="✅ Gmail draft created — open Drafts, attach the PDF, and send.";
-      $("emStatus").className="emstatus ok";
-      $("emBtn").textContent="✉ Draft Created";
-    } else throw new Error("Could not confirm. Check Gmail Drafts.");
-  } catch(e) {
-    $("emStatus").textContent="⚠ "+e.message;
-    $("emStatus").className="emstatus fail";
-    $("emBtn").disabled=false; $("emBtn").textContent="✉ Email";
-  }
+  $("emStatus").textContent = "✅ Opening your email app — attach the PDF before sending.";
+  $("emStatus").className = "emstatus ok";
 });
 </script>
 </body>
