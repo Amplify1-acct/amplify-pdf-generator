@@ -9,112 +9,79 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--red:#E80E00;--black:#0A0A0A;--white:#FFFFFF;--off:#F5F0EC;--gray:#888888;--lt:#E8E4E0}
 body{font-family:'Helvetica Neue',Arial,sans-serif;background:var(--off);color:var(--black);min-height:100vh}
-
 header{background:var(--black);padding:18px 40px;display:flex;align-items:center;gap:16px;border-bottom:2.5px solid var(--red)}
 header svg{height:28px;width:auto}
 header .tag{margin-left:auto;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray)}
-
 .main{max-width:700px;margin:48px auto;padding:0 24px 80px}
 h1{font-size:25px;font-weight:300;letter-spacing:.5px;margin-bottom:6px}
 h1 strong{color:var(--red);font-weight:400}
 .sub{color:var(--gray);font-size:13px;margin-bottom:34px;line-height:1.6}
-
 .card{background:white;border:1px solid var(--lt);border-radius:2px;padding:30px;margin-bottom:18px}
 .clabel{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--lt)}
-
-/* inputs */
 input[type=text],input[type=email],input[type=url]{width:100%;border:1.5px solid var(--lt);border-radius:2px;padding:12px 14px;font-size:13px;font-family:inherit;color:var(--black);background:var(--off);outline:none;transition:border-color .2s}
 input[type=text]:focus,input[type=email]:focus,input[type=url]:focus{border-color:var(--red)}
 input::placeholder{color:var(--gray)}
-
 .url-row{display:flex;gap:10px}
 .url-row input{flex:1}
 .hint{font-size:11px;color:var(--gray);margin-top:8px;line-height:1.5}
-
 .doc-preview{display:none;margin-top:16px;padding:13px 16px;background:var(--off);border-radius:2px;border-left:3px solid var(--red)}
 .doc-preview.on{display:block}
 .dp-title{font-size:13px;font-weight:600;margin-bottom:3px}
 .dp-meta{font-size:11px;color:var(--gray)}
-
-/* 2-col grid */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
 .opt-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;display:block}
 select{width:100%;border:1.5px solid var(--lt);border-radius:2px;padding:10px 12px;font-size:13px;font-family:inherit;background:var(--off);color:var(--black);outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
 select:focus{border-color:var(--red)}
-
-/* toggles */
 .trow{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--lt)}
 .trow:last-child{border-bottom:none;padding-bottom:0}
-.tl{font-size:13px;font-weight:500}
-.ts{font-size:11px;color:var(--gray);margin-top:1px}
+.tl{font-size:13px;font-weight:500}.ts{font-size:11px;color:var(--gray);margin-top:1px}
 .toggle{position:relative;width:40px;height:22px;flex-shrink:0}
 .toggle input{opacity:0;width:0;height:0}
 .tslider{position:absolute;inset:0;background:var(--lt);border-radius:22px;cursor:pointer;transition:background .2s}
 .tslider::before{content:'';position:absolute;width:16px;height:16px;background:white;border-radius:50%;top:3px;left:3px;transition:transform .2s}
 .toggle input:checked+.tslider{background:var(--red)}
 .toggle input:checked+.tslider::before{transform:translateX(18px)}
-
-/* sender section */
 .sender-section{margin-top:20px;padding-top:20px;border-top:1px solid var(--lt)}
 .sender-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
-
-/* email section */
 .email-section{margin-top:20px;padding-top:20px;border-top:1px solid var(--lt)}
 .email-row{display:flex;gap:10px;margin-top:8px;align-items:flex-end}
 .email-row input{flex:1}
-
-/* buttons */
 .btn-black{background:var(--black);color:white;border:none;border-radius:2px;padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s;flex-shrink:0}
 .btn-black:hover:not(:disabled){background:#333}
 .btn-black:disabled{background:var(--gray);cursor:not-allowed}
 .btn-outline{background:white;color:var(--black);border:1.5px solid var(--lt);border-radius:2px;padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:all .2s;flex-shrink:0}
 .btn-outline:hover:not(:disabled){border-color:var(--red);color:var(--red)}
 .btn-outline:disabled{opacity:.4;cursor:not-allowed}
-
 .gen-btn{width:100%;background:var(--red);color:white;border:none;border-radius:2px;padding:16px 24px;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .1s;margin-top:4px}
 .gen-btn:hover:not(:disabled){background:#c50c00}
 .gen-btn:active:not(:disabled){transform:scale(.99)}
 .gen-btn:disabled{background:var(--gray);cursor:not-allowed}
-
-/* progress */
-.prog{display:none;margin-top:18px}
-.prog.on{display:block}
+.prog{display:none;margin-top:18px}.prog.on{display:block}
 .ptrack{height:2px;background:var(--lt);border-radius:2px;overflow:hidden;margin-bottom:14px}
 .pfill{height:100%;background:var(--red);width:0%;transition:width .5s ease;border-radius:2px}
 .steps{display:flex;flex-direction:column;gap:7px}
 .step{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--gray);transition:color .2s}
-.step.active{color:var(--black);font-weight:500}
-.step.done{color:var(--red)}
+.step.active{color:var(--black);font-weight:500}.step.done{color:var(--red)}
 .dot{width:5px;height:5px;border-radius:50%;background:var(--lt);flex-shrink:0;transition:background .2s}
-.step.active .dot{background:var(--black)}
-.step.done .dot{background:var(--red)}
-
-/* result */
+.step.active .dot{background:var(--black)}.step.done .dot{background:var(--red)}
 .result{display:none;margin-top:18px;background:white;border:1px solid var(--lt);border-radius:2px;padding:24px}
-.result.on{display:block}
-.result.err{background:#fff5f5;border-color:#fcc}
+.result.on{display:block}.result.err{background:#fff5f5;border-color:#fcc}
 .rhead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.ricon{font-size:20px}
-.rtitle{font-size:14px;font-weight:600}
-.rsub{font-size:11px;color:var(--gray);margin-top:2px}
+.ricon{font-size:20px}.rtitle{font-size:14px;font-weight:600}.rsub{font-size:11px;color:var(--gray);margin-top:2px}
 .arow{display:flex;gap:10px;flex-wrap:wrap}
 a.dl-btn{display:inline-flex;align-items:center;gap:7px;background:var(--black);color:white;border:none;border-radius:2px;padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .2s}
 a.dl-btn:hover{background:#333}
 .emstatus{margin-top:10px;font-size:12px;color:var(--gray);min-height:16px}
-.emstatus.ok{color:#2a7a2a}
-.emstatus.fail{color:var(--red)}
+.emstatus.ok{color:#2a7a2a}.emstatus.fail{color:var(--red)}
 .errmsg{font-size:13px;color:#842029;line-height:1.6}
-
 .pgfoot{margin-top:40px;text-align:center;font-size:11px;color:var(--gray);letter-spacing:1px}
 .pgfoot span{color:var(--red)}
 </style>
 </head>
 <body>
-
 <header>
   <svg viewBox="0 0 406 185" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M89.3011 71.9629L70.3398 110.699H78.4155L82.2786 102.516H105.153L108.965 110.699H117.091L98.0804 71.9629H89.3011ZM84.9872 96.7327L91.7091 82.3833C92.16 81.2381 93.113 78.8365 93.6652 77.3092H93.7654C94.3175 78.8365 95.2204 81.2381 95.7214 82.3833L102.443 96.7327H84.9872Z" fill="white"/>
-    <path d="M156.812 99.024C156.31 100.279 155.809 101.533 155.609 102.571H155.459C155.258 101.533 154.806 100.334 154.305 99.024L142.366 71.9629H131.029V110.698H137.701V82.8198H137.951C138.302 83.9464 139.206 82.4377 151.847 110.698H158.97L171.811 82.4377C172.514 80.747 173.567 77.7457H173.818C173.617 79.1097 173.517 82.8198V110.698H180.389V71.9629H168.851L156.812 99.024Z" fill="white"/>
     <path d="M234.361 84.4561C234.361 76.7094 229.044 71.9629 220.365 71.9629H196.839V110.699H204.363V97.4403H219.663C228.542 97.4403 234.361 92.3672 234.361 84.4561ZM218.71 91.5486H204.363V77.909H218.71C223.626 77.909 226.435 80.3639 226.435 84.565C226.435 88.9293 223.526 91.5486 218.71 91.5486Z" fill="white"/>
     <path d="M254.22 71.9629H246.695V110.7H279.953V104.098H254.22V71.9629Z" fill="white"/>
     <path d="M300.217 71.9629H292.692V110.699H300.217V71.9629Z" fill="white"/>
@@ -127,9 +94,8 @@ a.dl-btn:hover{background:#333}
 
 <div class="main">
   <h1>Google Doc &rarr; <strong>Amplify</strong> Branded PDF</h1>
-  <p class="sub">Paste a proposal Google Doc URL. We'll parse it, apply full Amplify brand formatting with PP Mori fonts, and deliver a polished PDF ready to send.</p>
+  <p class="sub">Paste a proposal Google Doc URL. We parse it, apply full Amplify brand formatting with PP Mori fonts, and deliver a polished PDF ready to send.</p>
 
-  <!-- Card 1: Doc URL -->
   <div class="card">
     <div class="clabel">Step 1 — Google Doc URL</div>
     <div class="url-row">
@@ -143,10 +109,8 @@ a.dl-btn:hover{background:#333}
     </div>
   </div>
 
-  <!-- Card 2: Options + Sender + Email -->
   <div class="card">
     <div class="clabel">Step 2 — Options</div>
-
     <div class="grid2">
       <div>
         <span class="opt-label">Cover Style</span>
@@ -164,7 +128,6 @@ a.dl-btn:hover{background:#333}
         </select>
       </div>
     </div>
-
     <div>
       <div class="trow">
         <div><div class="tl">Page Numbers</div><div class="ts">Footer of every interior page</div></div>
@@ -175,21 +138,13 @@ a.dl-btn:hover{background:#333}
         <label class="toggle"><input type="checkbox" id="ampFooter" checked><span class="tslider"></span></label>
       </div>
     </div>
-
-    <!-- Sender info -->
     <div class="sender-section">
-      <span class="opt-label">Your Info (appears on PDF cover &amp; email)</span>
+      <span class="opt-label">Your Info (appears on cover &amp; every page footer)</span>
       <div class="sender-grid">
-        <div>
-          <input type="text" id="senderName" placeholder="Your name (e.g. Cynthia Becht)" />
-        </div>
-        <div>
-          <input type="text" id="senderPhone" placeholder="Your phone (optional)" />
-        </div>
+        <input type="text" id="senderName" placeholder="Your name (e.g. Cynthia Becht)" />
+        <input type="text" id="senderPhone" placeholder="Your phone (optional)" />
       </div>
     </div>
-
-    <!-- Email to client -->
     <div class="email-section">
       <span class="opt-label">Email PDF to client (optional)</span>
       <div class="email-row">
@@ -202,7 +157,6 @@ a.dl-btn:hover{background:#333}
 
   <button class="gen-btn" id="genBtn" disabled>Generate Amplify PDF</button>
 
-  <!-- Progress -->
   <div class="prog" id="prog">
     <div class="ptrack"><div class="pfill" id="pfill"></div></div>
     <div class="steps">
@@ -214,7 +168,6 @@ a.dl-btn:hover{background:#333}
     </div>
   </div>
 
-  <!-- Result -->
   <div class="result" id="result">
     <div class="rhead">
       <div class="ricon" id="ricon">✅</div>
@@ -238,15 +191,13 @@ const FONT_EL  = "AAEAAAASAQAABAAgRFNJRwAAAAEAAYOkAAAACEdERUYWMxYSAAABLAAAAKhHUE
 const LOGO_W   = "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";
 const LOGO_B   = "iVBORw0KGgoAAAANSUhEUgAAAZAAAAC2CAYAAAD3PdtTAAAABmJLR0QA/wD/AP+gvaeTAAARpUlEQVR4nO3debCdZX3A8e/NBlkgIVgIFLQlRAEBS0EcyyZUxb1oGRBhoC1VoYIFpS4RZNpSUBRDWSyMBURcgIGKMKVisVAkgESggAhYtiKLISQxEEIgyb3947l3uMt5nvcs73bO+X5m3plMnnPe53fOe+77vM8OKtomwLnAc8DLwI3ALpVGJEmqvWnAPcDQuGMtsEeFcUmSau4kJhYeI8eSCuOSJNXc9cQLkCFgdnWhSVJnJlUdQI9bl0gbBNaXFYgk5c0CpFjXJNJuBF4qKxBJUncZAK5jYtPVc8B2FcYlSR2bXHUAfeAKYDmhv2MVcDVwCPBUlUFJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkmpgW2AnYErVgUiSusMOwGLGroN1WKURSZJqb3PgWRrvBXJwhXFJkmruq8Q3k3qcsFqvJEkT3EB6R8K51YUmSZ1xQ6lirUykvYIbSkmSIt5DvPZxcYVxSZK6wOmE/c9HFx5LgDlVBiVJnSq7E3cOsA+wFXAf8HPCDbXX7UPYhXBT4FbgEmB9pRGVY2fgbcALhM/9bLXhSOpWBwIrGPskfhOwWZVBqRBTgcsYe63XAp+sMihJ3WlbYDWN+wKuqjAuFeM0Gl/rDcDeFcYlqQudQLwzeRCYV11oKsBviF/vCyuMS1KOyhrGOz+RNkCooag3TAN+P5G+fVmBSCpWWQXIrxNpg8ATJcWh4r1K+no+XFIcknrEPMKkukZNGpdWGJeKsZDG13odsEeFcUnqUnsDTzP2hvJDYFaVQakQk4AzCAXGyLVehasQSz2l7Hkg04G3EuaB3As8VHL+Ktd2wF6EEXg3k17aRZIkSZIkSZIkSZKUYRvgHOBOwrpZpwAzK42oP00GjgN+DNxNWIp+l0ojkqSE+cBSJs4luBOYUWFc/WYAuJKJ12ENsF+FcUlS1NXE11P6QoVx9ZsPEb8OD+G+7pJq6HniN65bKoyr35xFel/37aoLTVKV6ron+gBhT4mYKWUFIqZlpKeuk6QeVtcCZAi4PZF+U1mBiMWJtKeA/y0rEElq1m403oTqUdzFsExTCE2GjTaH+kiFcUlS0q7ANYTRWI8C3wK2rDSi/jQDOBN4EniZsL/5OyuNSJIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkqWQDVQfQ4waAP8x4zWrguRJiSXkDMLnJ1z4LvFxgLCO2AGY1+dqXCXG1axLwBx28P8sqYCUwWGAeAPMIn6WRFwi/tbqZA8yIpL0KPN/h+bfu8P15eZ7webI087t/HBjqOKJsc4C5ifSif89978OEC506ngGmVxXgsGfJjnPkOL2EeKYCv2khph93mN/cFvLq5FgJ3AWcCxxK8wVks15M5P35nPPKy3eIx3xHh+eelDh32ce+Tca8L7A+41wntvxNtG5j4L6MOP6xhDj62hKa+3H9TVUBDmulAFkBzCw4niNaiKebCpBGBcqZwFYdxj/CAmSsbixAAE7LONda4C0tfROtuzAjhjsID3oqyPtp/sf1JDCtmjCB1gqQIeCYguO5s8V4urUAGV2QfLTDzwAWION1awEyBViccb4HKK7lIqvlZCXDTb6x9lJ17ostvHZb4C8KiqMIJ1Lcb+cdwFsLOnddzQF+ACysOhDVwnrCA8WKxGt2As4oIO9tgG9lvOavgCcKyFvD3k3rTyj/R3W1kFZrIEPA+wqK5UdtxNLtNZCRY5Dwx9kuayBjdWsNZMTBGeccJLR05GUS8NOMPM8d/YYpOWau15ycSLuC0IE63uuBw4FLComoPU8S4mrkROD6nPNbAHwgkvYKoeo8L+c8m3E/sLSN921EqF1sA2zWxOsHgPOBGwnfvYq1nvJGErWTz1XAxcQfKgaG03elvd/neF8CDkik/xL4XA75KOEdxEvvnxFuJrFRFo9QTaEeq4EsIty4Y58n74688xN5XQH8KpJWdA2k0/6JAWBHwgi2VRl5DQGXtpmPNZCxsmogRffl5WEm8CDpz3FNDvnsSRhmHMtjNeE3PIZ9IPk7JZF2MfAU4Qmzkfnk05mal2nAzYn0T+eY11zgqET6pcCWOeZXpiHCTWAhodC9P+P1hwOvKzoodYWXgEMII69i/gz4eAd5zAYuJz2q6njCb3gMC5B8vZ14FXA1oUoKoSCJ+TLNT+or2gzg3xLph5Nfk9IniQ8PXgr8hNAc1O2eAN5DuoN0MvDeUqJRN7if7EE5i4A3tXn+b5Ke8HwlkaZ1C5B8nZpIu5zQxAChyrks8roFhM6zOphKiHVDJH0jwo0/j3xSc2FGmnR65ff6DPD1jNe8s4xA1DX+Gbg2kT4T+B6tD8T5S+BjifRHSdRueuUPsg72BA5MpF8w6t+vkq6FnEw9rs1UwtN/rMkN4FhCQdKJQwl9Q40MEr6rTvOom6sy0rctJQp1iyHgr0kv2bM76YfY8eYTCqaYdYRWhhdiL6jDTapXpPo+fkJYwmK0RcTXlNqZMJmnLhYl0rYk/QTTjFRfyrXAw/Teum2PkF4bqVv7e1ScZYS/tViLAMAXCAN5skwl1Fg2Sbzm88DPUyexAMnHH5Eej/3VBv+3lDACJeYU6nPTvIGwLk7MZ2g/1v1JTxzMaurpVkPAmkT6xmUFoq5yM+m/iUnAZWQPGz8deFsi/T+As7OCsQDJR+pmvwT4r0jamYQhvY28Bfhgh3HlKVXV3ZlQELQjtTDcEsKSDr1oGmH0S0we4/rVm04Gbk+kb8O4CX/jvIvw0BezlNA3MpQViAVI53YCDkqkfyWR9hhwdSL9VOpTC/ke8NtEejsrhC6g9Zpbr9iT9LV9pqxA1HXWExYcjfZNEPouGjUt/x5hUErs3j84/N6mHmAsQDr3ZeLf48NkT/I5g3hJ/8eEIZ918AphuF/M+4EdWjznCcS/u8fIZ4JUXR2ZkT6+z0z5m0IYnFH0UcR99jGy5358k7H73AwAF5Fe/fk0wnImLZlOaIa5GfhP4FO0NxdhHqHqtJiwplGdOoKLsID02v3Nrmt0Q+IcqapqXmIz0a8Y97q5hPkssVjPbyHPzTLONX5Y76zEa+s+E328txNGuKTyfHMb53Um+lh1WQsrj6HuMd/OyPu/ee1e/rcZr72FNlbCmE1YGnj8yW5s8WQ7E3bdGn+ezI6YLpb68T9F82OyD0icZ4ji5wQ0W4BAGI4ci/MlYPMm81yYOM9yJk4q7JUCZD/CDpSp/LJmqsdYgIzVDwXITOChjPyPJzzsrkm8ZgVhZ9KW/UvipCe1cJ7U5kl/2k5gNTef9FNkqpOqkdsS5yq6I7mVAuSNhGGEndyosnYc/PsG7+nmAmQ6YZDB90l/dyNHu7PQLUDG6ocCBML8j9SadcsI845i6YOE5VDa0qjW0OoFfEPiHEOk28671UXEP+9y0uOrG/lI4nxDNDe2u12tFCAA1yXifIrsncqOTLx/LY2XR6myAHkM+EUbx92EZfpTi9SNP1KzjbNYgIzVLwUIhIf9duM7p5OMX0qc+N4mz7FDRoCXdBJgDb2edInf6Ak6ywCNmxJHjpY7tlrQagGyfyLOIeCwjPzuTrz3gsh7qixAyjruo7P1vixAxuqnAmSA9INd6jfX9s6GkwgdJzGptNEeIT3E82dNR9QdFhLv31gDnNfGOYeAsxLpBwD7tHHeItxEaLKM+Wwi7QBgt0jaEOn5Jr3sHsJGZL+rOpA+UmYhUsZnOZr0Uifjjaz0G1sRoyk70LgW8gzNd4hCaIIZbHCexdRnddk8bENoZon9UDq5AU4lNHnEzt3pk3ZMqzUQCOPQU38we0Xel3pKSg3b7dUayCDhN5PHWl/WQMbqhf1AWvVuGt+HGx1H5ZXpmwlDeDcQ2muvJr64XcqBvNYM8yJhSO+sfEKsjXOIX5B1tDmSYZTPJM4/BPxJh+dvpJ0CZCph17xYnI0WC1xAuhN570R+vVaArCXcPNsZrhtjATJWPxYgEJY6yfr9XZ5HRiPDdB8gdNJOI/yBpxbrSrmB8AcxnQ6rRTU1j7AiZsyLwNc6zCOrwF1IfNvXMq0jzPuIzbQ/CNiO0AE94kTik6qWALfmFl19DBIGVawgDN+9g9Ckewthd0IpbwsJI/l2iqQ/TWcbUKlNZ1H+k2qjY4+cP1c7NRAIHb6pp97RfTpZkxD/PCOvbh7GWxZrIGP1aw0EQnNw7HPnNi3ApUyatznwiaqDGLaw6gCG/Y70viZH81qN6hPEdxx8lN5etkTqSRYgzTuJ+vTnHATsWnUQw84m3uQ5mzC4YoBQmMQsSpxDUk1ZgDRnLmF9sLoYAL5UdRDDHidde/gYYUTW9pH05fTePCGpL1iANOcEWp9ZXrSDCeuP1cE3Emn7Ecaax5xPemMlSTVlAZJtNnBcIv1+wvc4UMCxE2EUTyOTgC+2/7FydRvxDs+Nmbiy7oi19OYyN1JfaHnp3j70adLbQ36FMLKhCA8C1xMftnso8A+EfUeq9g3gykhabCLpd3DnvbLsTXoP9jwsA75bcB5S15hJ+KOIDYd7jOIL4b0T+Q8R9gPoVLvDeEebTBhN1exQ5EFgxxbO7zDebKlhvGUcza6dN5rDeIvhMN4aOA54XSI9tad5Xm4lfcGPIMzwrtoG0vswj3ctoYYlqUtZgMTNIHvj+UtLiuXMRNpk4HMlxZHlIppfDPDrRQYiqXgWIHHHAFsk0hdR3nIt1wG/TKQfxdi9j6vyIvCvTbyuV5ctkfqKBUhjG5NekvwF4MKSYoHQbpl6Yp9KfWohZxPWyUpJ1agkdQkLkMY+DmydSD+P8vdt+D5hqfeYo+l8JeA8PE3jlXhHPA78sKRYJBVooOoAamoW6W1ZV5P9lF2EmcQ3soKwr0s7QzVn0/hh4tXhc7ZqI0IfUiPtnnOA+G596wjXpF2pc0P732vZZlPt3/QGQjNmK2YQ/02vp7PrCunruobuuK7tSN3D1tP6dZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSVKpBqoOIMNk4DBgP2Aj4Hbg28DLFcbUr94FfADYAvgf4GJgWaURSVLEVODfgaFxxz3AnArj6kdnMPE6PAvsWGVQkhRzAhNvWiPHeRXG1W/2JX4dbqswLkmKuoH4jeuRCuPqN6cTvw6DwGbVhSapSpOqDiAhdWOaW1oUSn3XA1iASH2rzgXIL9pMU77uSqQtBx4vKxBJatb2wComNpusA/apMK5+MxN4mMZNWMdXGJckJe0G3EooNAaBewnDSVWurYEfAesJBcdvgWMrjUiSmjQd2LTqIMQmwLaE+TmSJEmSJEmSJGmiLaoOQKWZA0yrOghJ3W0j4GxgJWEkzwrga3hz6VUfBh4kXOtXgZ8Cb6o0Ikld60oazyW4rMqgVIgPEoZdj7/WS4GtKoxLUhfahfh6SkPAgupCUwHuIn6t/6nCuCTlqKylTHbPSN+jlChUhmmEB4aYrN+CpC5RVgGyIiN9eSlRqAzrgBcT6V5rSS3ZnHBTadSksRKYXV1oKsAPiDdhHVlhXJK61CGE0TijbyZrCaN11FvmAb9mYuFxOfVeAVpSC8reE30X4HDgjYQVXi8DflVyDFXYFNifsJbU7cCj1YZTik2AY4C9gJeAa3ltJJ4kqQnvI6xeO/IUvp4w/8UncUlS1HbE+34+W2FckqSau4B4Z/JyrIVI6mLewIo1P5E2F/d2l9TFLECK9WQibRVhCLMkSRPsArxC4yasUyuMS5LUBT5KqG2MLjwuAqZWGZQkdarseSD9ah7wXsLciMWExQYlSZIkSZIkSZIkSZIkSZIkSZIkSZIkqZ4mVx1An9gVOBb4EDALeKjacCRJ3eDvgHWMXQvrRmBmlUFJkuptX2ADjVfjPbfCuCRJNfdd4jsSrsEVeSV1MTeUKtYWibTpwKZlBSJJebMAKdYDibRngBVlBSJJ6i5bAc/TuAnriArjkiR1gd0JNZGRgmM18KlKI5KkHPw/1Jjxt4DHQ7cAAAAASUVORK5CYII=";
 
-let parsedDoc = null;
-let pdfDataUrl = null;
+let parsedDoc = null, pdfDataUrl = null;
 const $ = id => document.getElementById(id);
 
-// ── URL Input ──
 $("docUrl").addEventListener("input", () => {
   $("fetchBtn").disabled = $("docUrl").value.trim().length < 20;
 });
-$("docUrl").addEventListener("keydown", e => { if (e.key==="Enter") loadDoc(); });
+$("docUrl").addEventListener("keydown", e => { if (e.key === "Enter") loadDoc(); });
 $("fetchBtn").addEventListener("click", loadDoc);
 
 async function loadDoc() {
@@ -259,11 +210,14 @@ async function loadDoc() {
   $("docPreview").classList.remove("on");
 
   try {
-    const exportUrl = `https://docs.google.com/document/d/${m[1]}/export?format=txt`;
-    const resp = await fetch(exportUrl);
-    if (!resp.ok) throw new Error("Cannot access this doc. Set sharing to Anyone with the link → Viewer.");
+    // Use our serverless proxy to avoid CORS issues
+    const resp = await fetch(`/api/fetch-doc?docId=${m[1]}`);
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({ error: "Failed to load document." }));
+      throw new Error(err.error || "Failed to load document.");
+    }
     const text = await resp.text();
-    if (!text.trim()) throw new Error("Document is empty.");
+    if (!text.trim()) throw new Error("Document appears to be empty.");
 
     parsedDoc = await parseWithClaude(text);
 
@@ -292,7 +246,7 @@ async function parseWithClaude(text) {
       model: "claude-sonnet-4-20250514",
       max_tokens: 4000,
       system: "You parse proposal documents into JSON. Return ONLY valid JSON — no markdown, no backticks, no explanation. Preserve all content faithfully.",
-      messages: [{ role: "user", content: `Parse this proposal into JSON:
+      messages: [{ role: "user", content: `Parse this proposal into JSON with this exact structure:
 {
   "title": "full document title",
   "subtitle": "subtitle or empty string",
@@ -319,7 +273,6 @@ ${text.substring(0, 8000)}` }]
   return JSON.parse(txt);
 }
 
-// ── Generate ──
 $("genBtn").addEventListener("click", generatePDF);
 
 async function generatePDF() {
@@ -334,10 +287,10 @@ async function generatePDF() {
   pdfDataUrl = null;
 
   const opts = {
-    coverStyle: $("coverStyle").value,
-    pageNums:   $("pageNums").checked,
-    footer:     $("ampFooter").checked,
-    paperSize:  $("paperSize").value,
+    coverStyle:  $("coverStyle").value,
+    pageNums:    $("pageNums").checked,
+    footer:      $("ampFooter").checked,
+    paperSize:   $("paperSize").value,
     senderName:  $("senderName").value.trim(),
     senderPhone: $("senderPhone").value.trim(),
   };
@@ -347,12 +300,10 @@ async function generatePDF() {
     await tick("s2", 35);
     await tick("s3", 55);
     await tick("s4", 80);
-
     pdfDataUrl = await buildPDF(parsedDoc, opts);
-
     await tick("s5", 100);
 
-    const safeName = (parsedDoc.title||"Amplify-Proposal")
+    const safeName = (parsedDoc.title || "Amplify-Proposal")
       .replace(/[^a-zA-Z0-9 ]/g,"").replace(/\s+/g,"-").substring(0,50);
     $("dlBtn").href = pdfDataUrl;
     $("dlBtn").download = safeName + ".pdf";
@@ -363,12 +314,11 @@ async function generatePDF() {
     $("rsub").textContent = [
       parsedDoc.sections?.length + " sections",
       meta.preparedFor || "",
-      opts.senderName ? "Prepared by " + opts.senderName : ""
+      opts.senderName ? "by " + opts.senderName : ""
     ].filter(Boolean).join(" · ");
 
     $("result").classList.add("on");
-    const emailAddr = $("emailTo").value.trim();
-    $("emBtn").disabled = !(emailAddr && pdfDataUrl);
+    $("emBtn").disabled = !$("emailTo").value.trim();
   } catch(e) {
     $("prog").classList.remove("on");
     $("result").className = "result on err";
@@ -389,11 +339,9 @@ async function tick(id, pct) {
   await new Promise(r => setTimeout(r, 650));
 }
 
-// ── PDF Builder ──
 async function buildPDF(doc, opts) {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF({ orientation:"portrait", unit:"pt", format: opts.paperSize === "a4" ? "a4" : "letter" });
-
   pdf.addFileToVFS("PPMori-Regular.ttf",    FONT_REG);
   pdf.addFont("PPMori-Regular.ttf",    "PPMori",   "normal");
   pdf.addFileToVFS("PPMori-ExtraLight.ttf", FONT_EL);
@@ -401,222 +349,172 @@ async function buildPDF(doc, opts) {
 
   const W = pdf.internal.pageSize.getWidth();
   const H = pdf.internal.pageSize.getHeight();
-  const RED   = [232, 14, 0];
-  const BLACK = [10, 10, 10];
-  const WHITE = [255, 255, 255];
-  const GRAY  = [136, 136, 136];
-  const LT    = [232, 228, 224];
-  const ML = 54, MR = 54, CW = W - ML - MR;
+  const RED   = [232,14,0], BLACK=[10,10,10], WHITE=[255,255,255];
+  const GRAY  = [136,136,136], LT=[232,228,224];
+  const ML=54, MR=54, CW=W-ML-MR;
   let pageNum = 1;
 
-  // ── Cover ──
+  // Cover
   if (opts.coverStyle !== "none") {
     const bg = opts.coverStyle === "black" ? BLACK : RED;
     pdf.setFillColor(...bg);
-    pdf.rect(0, 0, W, H, "F");
+    pdf.rect(0,0,W,H,"F");
+    pdf.addImage("data:image/png;base64,"+LOGO_W,"PNG",ML,48,160,160*(185/406));
 
-    // Logo
-    pdf.addImage("data:image/png;base64," + LOGO_W, "PNG", ML, 48, 160, 160*(185/406));
-
-    // Title
     pdf.setFont("PPMoriEL","normal"); pdf.setFontSize(34); pdf.setTextColor(...WHITE);
-    const titleLines = pdf.splitTextToSize(doc.title || "Proposal", CW);
-    let ty = H * 0.46 + (titleLines.length - 1) * 22;
-    titleLines.forEach(line => { pdf.text(line, ML, ty); ty += 46; });
+    const tl = pdf.splitTextToSize(doc.title||"Proposal", CW);
+    let ty = H*0.45 + (tl.length-1)*20;
+    tl.forEach(l => { pdf.text(l,ML,ty); ty+=46; });
 
-    // Subtitle
     if (doc.subtitle) {
       pdf.setFont("PPMori","normal"); pdf.setFontSize(12); pdf.setTextColor(210,210,210);
-      const sl = pdf.splitTextToSize(doc.subtitle, CW);
-      sl.slice(0,3).forEach(l => { pdf.text(l, ML, ty + 4); ty += 17; });
+      pdf.splitTextToSize(doc.subtitle,CW).slice(0,3).forEach(l => { pdf.text(l,ML,ty+4); ty+=17; });
     }
 
-    // Rule
     pdf.setDrawColor(255,255,255); pdf.setLineWidth(0.5);
-    pdf.line(ML, 150, W-MR, 150);
+    pdf.line(ML,150,W-MR,150);
 
-    // Cover meta
     pdf.setFont("PPMoriEL","normal"); pdf.setFontSize(9); pdf.setTextColor(200,200,200);
-    const meta = doc.metadata || {};
-    let my = 132;
-    if (meta.preparedFor) { pdf.text("Prepared for: " + meta.preparedFor, ML, my); my -= 15; }
-    if (meta.investment)  { pdf.text("Investment: " + meta.investment, ML, my); my -= 15; }
-
-    // Sender name on cover
-    if (opts.senderName) {
-      pdf.text(opts.senderName + (opts.senderPhone ? "  ·  " + opts.senderPhone : ""), ML, my);
-      my -= 15;
-    }
-    pdf.text("amplifylaw.ai", ML, my);
-
+    const meta = doc.metadata||{};
+    let my=132;
+    if (meta.preparedFor)  { pdf.text("Prepared for: "+meta.preparedFor,ML,my); my-=15; }
+    if (meta.investment)   { pdf.text("Investment: "+meta.investment,ML,my); my-=15; }
+    if (opts.senderName)   { pdf.text(opts.senderName+(opts.senderPhone?"  ·  "+opts.senderPhone:""),ML,my); my-=15; }
+    pdf.text("amplifylaw.ai",ML,my);
     pdf.addPage();
   }
 
-  // ── Interior page chrome ──
   function drawChrome() {
-    pdf.setDrawColor(...RED); pdf.setLineWidth(1.5);
-    pdf.line(ML, 36, W-MR, 36);
-    pdf.addImage("data:image/png;base64," + LOGO_B, "PNG", W-MR-80, 14, 80, 80*(185/406));
+    pdf.setDrawColor(...RED); pdf.setLineWidth(1.5); pdf.line(ML,36,W-MR,36);
+    pdf.addImage("data:image/png;base64,"+LOGO_B,"PNG",W-MR-80,14,80,80*(185/406));
     if (opts.footer) {
-      pdf.setDrawColor(...LT); pdf.setLineWidth(0.5); pdf.line(ML, H-42, W-MR, H-42);
+      pdf.setDrawColor(...LT); pdf.setLineWidth(0.5); pdf.line(ML,H-42,W-MR,H-42);
       pdf.setFont("PPMoriEL","normal"); pdf.setFontSize(8); pdf.setTextColor(...GRAY);
-      const footerLeft = opts.senderName
-        ? opts.senderName + (opts.senderPhone ? "  ·  " + opts.senderPhone : "") + "  ·  amplifylaw.ai"
+      const fl = opts.senderName
+        ? opts.senderName+(opts.senderPhone?"  ·  "+opts.senderPhone:"")+"  ·  amplifylaw.ai"
         : "amplifylaw.ai  ·  Amplify for Lawyers";
-      pdf.text(footerLeft, ML, H-28);
-      if (opts.pageNums) pdf.text(String(pageNum), W-MR, H-28, { align:"right" });
+      pdf.text(fl,ML,H-28);
+      if (opts.pageNums) pdf.text(String(pageNum),W-MR,H-28,{align:"right"});
     }
   }
   drawChrome();
 
-  let y = 64;
-  const BOT = H - 60;
+  let y=64;
+  const BOT=H-60;
 
   function needPage(h) {
-    if (y + h > BOT) {
-      pdf.addPage(); pageNum++; drawChrome(); y = 64;
-    }
+    if (y+h>BOT) { pdf.addPage(); pageNum++; drawChrome(); y=64; }
   }
 
-  function para(text, style) {
-    const C = {
-      h1:     { font:"PPMoriEL", size:15, color:RED,   lh:22, sb:20, sa:4,  indent:0 },
-      h2:     { font:"PPMori",   size:12, color:BLACK, lh:17, sb:14, sa:3,  indent:0 },
-      h3:     { font:"PPMori",   size:11, color:BLACK, lh:15, sb:10, sa:2,  indent:0 },
-      body:   { font:"PPMori",   size:10, color:BLACK, lh:16, sb:0,  sa:7,  indent:0 },
-      bullet: { font:"PPMori",   size:10, color:BLACK, lh:16, sb:0,  sa:3,  indent:14 },
-      italic: { font:"PPMoriEL", size:10, color:BLACK, lh:16, sb:0,  sa:5,  indent:0 },
-      callout:{ font:"PPMoriEL", size:11, color:GRAY,  lh:16, sb:0,  sa:7,  indent:16 },
-      caption:{ font:"PPMoriEL", size:8,  color:GRAY,  lh:12, sb:0,  sa:3,  indent:0 },
-      contact:{ font:"PPMori",   size:11, color:BLACK, lh:16, sb:0,  sa:3,  indent:0 },
-      ampname:{ font:"PPMoriEL", size:10, color:RED,   lh:14, sb:8,  sa:2,  indent:0 },
-    }[style] || { font:"PPMori", size:10, color:BLACK, lh:16, sb:0, sa:7, indent:0 };
-
-    pdf.setFont(C.font, "normal");
-    pdf.setFontSize(C.size);
-    pdf.setTextColor(...C.color);
-    const lines = pdf.splitTextToSize(text, CW - C.indent);
-    needPage(C.sb + lines.length * C.lh + C.sa);
-    y += C.sb;
-    lines.forEach(l => { pdf.text(l, ML + C.indent, y); y += C.lh; });
-    y += C.sa;
+  function para(text,style) {
+    const C={
+      h1:     {font:"PPMoriEL",size:15,color:RED,  lh:22,sb:20,sa:4, indent:0},
+      h2:     {font:"PPMori",  size:12,color:BLACK,lh:17,sb:14,sa:3, indent:0},
+      h3:     {font:"PPMori",  size:11,color:BLACK,lh:15,sb:10,sa:2, indent:0},
+      body:   {font:"PPMori",  size:10,color:BLACK,lh:16,sb:0, sa:7, indent:0},
+      bullet: {font:"PPMori",  size:10,color:BLACK,lh:16,sb:0, sa:3, indent:14},
+      italic: {font:"PPMoriEL",size:10,color:BLACK,lh:16,sb:0, sa:5, indent:0},
+      callout:{font:"PPMoriEL",size:11,color:GRAY, lh:16,sb:0, sa:7, indent:16},
+      caption:{font:"PPMoriEL",size:8, color:GRAY, lh:12,sb:0, sa:3, indent:0},
+      contact:{font:"PPMori",  size:11,color:BLACK,lh:16,sb:0, sa:3, indent:0},
+      ampname:{font:"PPMoriEL",size:10,color:RED,  lh:14,sb:8, sa:2, indent:0},
+    }[style]||{font:"PPMori",size:10,color:BLACK,lh:16,sb:0,sa:7,indent:0};
+    pdf.setFont(C.font,"normal"); pdf.setFontSize(C.size); pdf.setTextColor(...C.color);
+    const lines=pdf.splitTextToSize(text,CW-C.indent);
+    needPage(C.sb+lines.length*C.lh+C.sa);
+    y+=C.sb;
+    lines.forEach(l=>{pdf.text(l,ML+C.indent,y);y+=C.lh;});
+    y+=C.sa;
   }
 
-  function redRule() {
-    needPage(10);
-    pdf.setDrawColor(...RED); pdf.setLineWidth(1);
-    pdf.line(ML, y, W-MR, y); y += 8;
-  }
+  function redRule() { needPage(10); pdf.setDrawColor(...RED); pdf.setLineWidth(1); pdf.line(ML,y,W-MR,y); y+=8; }
+  function grayRule(){ needPage(8);  pdf.setDrawColor(...LT);  pdf.setLineWidth(0.5);pdf.line(ML,y,W-MR,y); y+=14;}
 
-  function grayRule() {
-    needPage(8);
-    pdf.setDrawColor(...LT); pdf.setLineWidth(0.5);
-    pdf.line(ML, y, W-MR, y); y += 14;
-  }
-
-  // ── Render sections ──
-  for (const sec of (doc.sections || [])) {
-    const { heading = "", level = 1, content = "" } = sec;
+  for (const sec of (doc.sections||[])) {
+    const {heading="",level=1,content=""} = sec;
     if (heading) {
-      para(level === 1 ? heading.toUpperCase() : heading, level === 1 ? "h1" : level === 2 ? "h2" : "h3");
-      if (level === 1) redRule();
+      para(level===1?heading.toUpperCase():heading, level===1?"h1":level===2?"h2":"h3");
+      if (level===1) redRule();
     }
     if (content) {
       for (const raw of content.split("\n")) {
-        const line = raw.trim();
-        if (!line) { y += 4; continue; }
-        if (line.startsWith("- ") || line.startsWith("• ")) {
-          para("• " + line.slice(2), "bullet");
-        } else if (line.startsWith("*") && line.endsWith("*") && line.length > 2) {
-          para(line.slice(1,-1), "italic");
-        } else if (line.startsWith(">")) {
-          para(line.slice(1).trim(), "callout");
-        } else {
-          para(line.replace(/\*\*(.+?)\*\*/g, "$1"), "body");
-        }
+        const line=raw.trim();
+        if (!line){y+=4;continue;}
+        if (line.startsWith("- ")||line.startsWith("• ")) para("• "+line.slice(2),"bullet");
+        else if (line.startsWith("*")&&line.endsWith("*")&&line.length>2) para(line.slice(1,-1),"italic");
+        else if (line.startsWith(">")) para(line.slice(1).trim(),"callout");
+        else para(line.replace(/\*\*(.+?)\*\*/g,"$1"),"body");
       }
     }
-    y += 4;
+    y+=4;
   }
 
-  // ── Contact block ──
-  const meta = doc.metadata || {};
-  const senderName  = opts.senderName  || meta.contactName  || "";
-  const senderPhone = opts.senderPhone || meta.contactPhone || "";
-  const senderTitle = meta.contactTitle || "Sales Consultant";
-
-  if (senderName || meta.preparedBy) {
+  const meta=doc.metadata||{};
+  const sName  = opts.senderName  || meta.contactName  || "";
+  const sPhone = opts.senderPhone || meta.contactPhone || "";
+  const sTitle = meta.contactTitle || "Sales Consultant";
+  if (sName) {
     grayRule();
-    if (senderName)  para(senderName, "contact");
-    if (senderTitle) para(senderTitle, "caption");
-    if (senderPhone) para(senderPhone, "caption");
-    para("AMPLIFY", "ampname");
-    para("Legal Marketing. Human Storytelling. Institutional Authority.", "caption");
+    para(sName,"contact"); para(sTitle,"caption"); if(sPhone) para(sPhone,"caption");
+    y+=8; para("AMPLIFY","ampname");
+    para("Legal Marketing. Human Storytelling. Institutional Authority.","caption");
   }
 
   return pdf.output("datauristring");
 }
 
-// ── Email ──
+// Email
 $("emailTo").addEventListener("input", () => {
   $("emBtn").disabled = !($("emailTo").value.trim() && pdfDataUrl);
 });
 
 $("emBtn").addEventListener("click", async () => {
-  const to = $("emailTo").value.trim();
-  if (!to || !pdfDataUrl) return;
-
-  $("emBtn").disabled = true;
-  $("emBtn").textContent = "Sending…";
-  $("emStatus").textContent = "Creating Gmail draft…";
-  $("emStatus").className = "emstatus";
-
+  const to=$("emailTo").value.trim();
+  if (!to||!pdfDataUrl) return;
+  $("emBtn").disabled=true; $("emBtn").textContent="Sending…";
+  $("emStatus").textContent="Creating Gmail draft…"; $("emStatus").className="emstatus";
   try {
-    const title      = parsedDoc?.title || "Amplify Proposal";
-    const forFirm    = parsedDoc?.metadata?.preparedFor || "";
-    const investment = parsedDoc?.metadata?.investment || "";
-    const sender     = $("senderName").value.trim() || "Amplify for Lawyers";
-    const phone      = $("senderPhone").value.trim();
+    const title=parsedDoc?.title||"Amplify Proposal";
+    const forFirm=parsedDoc?.metadata?.preparedFor||"";
+    const investment=parsedDoc?.metadata?.investment||"";
+    const sender=$("senderName").value.trim()||"Amplify for Lawyers";
+    const phone=$("senderPhone").value.trim();
 
-    const r = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 500,
-        mcp_servers: [{ type: "url", url: "https://gmail.mcp.claude.com/mcp", name: "gmail" }],
-        system: "You create Gmail drafts using the Gmail tool. Use the tool then confirm in one sentence.",
-        messages: [{ role: "user", content: `Create a Gmail draft:
+    const r=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:500,
+        mcp_servers:[{type:"url",url:"https://gmail.mcp.claude.com/mcp",name:"gmail"}],
+        system:"You create Gmail drafts using the Gmail tool. Use the tool then confirm in one sentence.",
+        messages:[{role:"user",content:`Create a Gmail draft:
 To: ${to}
 Subject: AMPLIFY Proposal — ${title}
 Body:
 Hi,
 
 Please find the attached AMPLIFY branded proposal.
-${forFirm ? "\nClient: " + forFirm : ""}${investment ? "\nInvestment: " + investment : ""}
+${forFirm?"\nClient: "+forFirm:""}${investment?"\nInvestment: "+investment:""}
 
-Download the attached PDF to review the full proposal.
+Download and open the attached PDF to review the full proposal.
 
 Best,
-${sender}${phone ? "\n" + phone : ""}
-Amplify for Lawyers | amplifylaw.ai` }]
+${sender}${phone?"\n"+phone:""}
+Amplify for Lawyers | amplifylaw.ai`}]
       })
     });
-
-    const d = await r.json();
-    const txt = (d.content||[]).map(b => b.text||"").join("").toLowerCase();
-    if (txt.includes("draft") || txt.includes("creat") || txt.includes("success")) {
-      $("emStatus").textContent = "✅ Gmail draft created — open Drafts, attach the PDF, and send.";
-      $("emStatus").className = "emstatus ok";
-      $("emBtn").textContent = "✉ Draft Created";
-    } else {
-      throw new Error("Could not confirm draft was created. Check your Gmail Drafts.");
-    }
+    const d=await r.json();
+    const txt=(d.content||[]).map(b=>b.text||"").join("").toLowerCase();
+    if (txt.includes("draft")||txt.includes("creat")||txt.includes("success")) {
+      $("emStatus").textContent="✅ Gmail draft created — open Drafts, attach the PDF, and send.";
+      $("emStatus").className="emstatus ok";
+      $("emBtn").textContent="✉ Draft Created";
+    } else throw new Error("Could not confirm. Check Gmail Drafts.");
   } catch(e) {
-    $("emStatus").textContent = "⚠ " + e.message;
-    $("emStatus").className = "emstatus fail";
-    $("emBtn").disabled = false;
-    $("emBtn").textContent = "✉ Email";
+    $("emStatus").textContent="⚠ "+e.message;
+    $("emStatus").className="emstatus fail";
+    $("emBtn").disabled=false; $("emBtn").textContent="✉ Email";
   }
 });
 </script>
